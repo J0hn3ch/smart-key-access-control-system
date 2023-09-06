@@ -1,0 +1,9 @@
+setuptools
+pymongo
+flask
+#flasgger==0.9.5 | ImportError: cannot import name 'JSONEncoder' from 'flask.json' (/usr/local/lib/python3.10/site-packages/flask/json/__init__.py)
+# Solution at. https://github.com/flasgger/flasgger/issues/565
+flasgger==0.9.7b2
+flask-marshmallow
+apispec
+python-dotenv
