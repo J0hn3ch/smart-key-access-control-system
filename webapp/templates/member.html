@@ -1,7 +1,20 @@
 <!doctype html>
-<title>Hello from Flask</title>
-{% if member_name %}
-  <h1>Hello {{ member_name }}!</h1>
-{% else %}
-  <h1>Hello, World!</h1>
-{% endif %}
+<title>UniVersoMe Member</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<div class="card">
+
+  {% if member_name %}
+  <h1>{{ member_name }}</h1>
+  {% else %}
+  <h1>Member not found</h1>
+  {% endif %}
+
+  {% if member_role %}
+  <h2>{{ member_role }}</h2>
+  {% else %}
+  <h1>Member role not found</h1>
+  {% endif %}
+
+  <p>Access allowed</p>
+</div>
+

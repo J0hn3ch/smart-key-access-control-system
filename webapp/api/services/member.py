@@ -14,3 +14,6 @@ class MemberService:
     
     def createMember(self, member):
         return self.memberModel.createMember(member)
+    
+    def deleteMember(self, student_id):
+        return self.memberModel.deleteMember(student_id)

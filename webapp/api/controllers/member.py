@@ -21,5 +21,5 @@ class MemberController:
         return self.message
     
     def deleteMember(self, memberId):
-        self.message = "Delete Member" # self.memberService.deleteMember()
+        self.message = self.memberService.deleteMember(memberId)
         return self.message

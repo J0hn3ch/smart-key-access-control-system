@@ -1,0 +1,12 @@
+.card {
+    background-color: blanchedalmond;
+    border: 2px solid;
+    /*border-radius: 30%;*/
+    box-shadow: 20px;
+    text-align: center;
+}
+
+.card p {
+    background-color: green;
+    color: white;
+}

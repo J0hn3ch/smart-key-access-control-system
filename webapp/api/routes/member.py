@@ -3,6 +3,7 @@ from flask import Blueprint, render_template, abort, request, make_response
 from flasgger import swag_from
 from api.controllers.member import MemberController
 from api.schemas.member import MemberSchema
+from api.models.member import Member
 
 import os
 
@@ -29,11 +30,15 @@ def manage_member():
     student_id = request.args.get('student_id')
     if student_id is not None:
         member = memberController.getMemberById(student_id)
-        return render_template('member.html', member_name=member.name)
+        if isinstance(member, Member):
+            return render_template('member.html', member_name=member.name, member_role=member.role)
+        else:
+            return render_template('member.html')
     else:
         memberController.getAllMembers()
         response = MemberSchema().dump(memberController), 200
         return response
+    
     #template = os.getcwd() + "/templates" + "/member.html"
     
     
@@ -110,6 +115,13 @@ def delete_member():
     A more detailed description of the endpoint
     --------
     """
-    member = MemberModel()
-    member.deleteMember('Melo')
-    return MemberSchema().dump(member), 200
+    memberController = MemberController()
+
+    student_id = request.args.get('student_id')
+    if student_id is not None:
+        memberController.deleteMember(student_id)
+        response = MemberSchema().dump(memberController), 200
+    else:
+        response = "Select member to delete"
+
+    return response

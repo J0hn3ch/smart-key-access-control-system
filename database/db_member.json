@@ -1,52 +1,52 @@
 {
-    "members": [
-      {
-        "student_id": "530554",
-        "name": "Gianluca Carbone",
-        "role": "Coordinator",
-        "unit": [
-          "computer science",
-          "radio"
-        ],
-        "createdAt": "4/20/2022, 2:21:56 PM",
-        "updatedAt": "4/20/2022, 2:21:56 PM",
-        "notes": [
-          "Split the 21 thrusters as needed",
-          "Try to do the 9 and 6 thrusters unbroken",
-          "RX Weights: 115lb/75lb"
-        ]
-      },
-      {
-        "student_id": "530554",
-        "name": "Domenico Leonello",
-        "role": "Secretary",
-        "unit": [
-          "phylosophy",
-          "newspaper"
-        ],
-        "createdAt": "4/20/2022, 2:21:56 PM",
-        "updatedAt": "4/20/2022, 2:21:56 PM",
-        "notes": [
-          "Split the 21 thrusters as needed",
-          "Try to do the 9 and 6 thrusters unbroken",
-          "RX Weights: 115lb/75lb"
-        ]
-      },
-      {
-        "student_id": "530554",
-        "name": "Francesco Pullella",
-        "role": "Reference",
-        "unit": [
-          "computer science",
-          "radio"
-        ],
-        "createdAt": "4/20/2022, 2:21:56 PM",
-        "updatedAt": "4/20/2022, 2:21:56 PM",
-        "notes": [
-          "Split the 21 thrusters as needed",
-          "Try to do the 9 and 6 thrusters unbroken",
-          "RX Weights: 115lb/75lb"
-        ]
-      }
-    ]
-  }
+  "members": [
+    {
+      "student_id": "530550",
+      "name": "Gianluca Carbone",
+      "role": "Coordinator",
+      "unit": [
+        "computer science",
+        "radio"
+      ],
+      "createdAt": "4/20/2022, 2:21:56 PM",
+      "updatedAt": "4/20/2022, 2:21:56 PM",
+      "notes": [
+        "Split the 21 thrusters as needed",
+        "Try to do the 9 and 6 thrusters unbroken",
+        "RX Weights: 115lb/75lb"
+      ]
+    },
+    {
+      "student_id": "530551",
+      "name": "Domenico Leonello",
+      "role": "Secretary",
+      "unit": [
+        "phylosophy",
+        "newspaper"
+      ],
+      "createdAt": "4/20/2022, 2:21:56 PM",
+      "updatedAt": "4/20/2022, 2:21:56 PM",
+      "notes": [
+        "Split the 21 thrusters as needed",
+        "Try to do the 9 and 6 thrusters unbroken",
+        "RX Weights: 115lb/75lb"
+      ]
+    },
+    {
+      "student_id": "530552",
+      "name": "Francesco Pullella",
+      "role": "Reference",
+      "unit": [
+        "computer science",
+        "radio"
+      ],
+      "createdAt": "4/20/2022, 2:21:56 PM",
+      "updatedAt": "4/20/2022, 2:21:56 PM",
+      "notes": [
+        "Split the 21 thrusters as needed",
+        "Try to do the 9 and 6 thrusters unbroken",
+        "RX Weights: 115lb/75lb"
+      ]
+    }
+  ]
+}

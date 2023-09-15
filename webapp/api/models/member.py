@@ -59,9 +59,11 @@ def create_member(input):
 
 class MemberModel:
     def __init__(self):
-        print(os.getcwd())
-        f = open('api/models/db_member.json','r')
-        self.db = json.load(f)
+        self._file_path = 'api/models/db_member.json'
+
+        with open(self._file_path, 'r', encoding='utf-8') as json_file:
+            self.db = json.load(json_file)
+
         self.message = "I\'m the Member Model"
 
     def connection(self, database, host=None, port=None):
@@ -70,6 +72,11 @@ class MemberModel:
         else:
             pass
         print("Connection to database established!")
+    
+    def reloadDatabase(self):
+
+        with open(self._file_path, 'r', encoding='utf-8') as json_file:
+            self.db = json.load(json_file)
 
     def getAllMembers(self):
         self.message = self.db.get('members')
@@ -91,8 +98,9 @@ class MemberModel:
             l1.append(new_member.dump())
             db_update = {'members':l1}
             self.db.update(db_update)
-            db.write(self.db)
-
+            db.write(json.dumps(self.db))
+        
+        self.reloadDatabase()
         self.message = "User created!"
         return self.message
     
@@ -101,5 +109,15 @@ class MemberModel:
         return self.message
     
     def deleteMember(self, memberId):
-        self.message = "Delete Member"
+        with open(self._file_path,'w') as db:
+            l1 = self.db.get('members')
+            for member in l1:
+                if member['student_id'] == memberId:
+                    l1.remove(member)
+            db_update = {'members':l1}
+            self.db.update(db_update)
+            db.write(json.dumps(self.db))
+        
+        self.reloadDatabase()
+        self.message = "Member with ID: " + memberId + " deleted!"
         return self.message
