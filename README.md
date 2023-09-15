@@ -37,6 +37,9 @@ In questo progetto vogliamo creare delle API REST per creare, leggere, aggiornar
 - ServiceLayer.py
 - DataAccessLayer.py
 
+### 3.2.2 Database management
+1. [Update JSON file in Python](https://bobbyhadz.com/blog/how-to-update-json-file-in-python)
+
 ### 3.2.2 RESTful API with Flask
 [Flask RESTful](https://flask-restful.readthedocs.io/en/latest/quickstart.html)
 
