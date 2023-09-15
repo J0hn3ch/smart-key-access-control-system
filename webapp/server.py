@@ -3,12 +3,14 @@ import os
 
 from flask import Flask
 from flask import Blueprint
+from flask_restful import Api
 from flasgger import Swagger
 from pymongo import MongoClient
 from api.routes.home import home_api
 from api.routes.member import member_api
 
 app = Flask(__name__)
+#api = Api(app)
 
 app.config['SWAGGER'] = {
     'title': 'Flask API Starter Kit',
@@ -32,4 +34,4 @@ def todo():
 '''
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=os.environ.get("FLASK_SERVER_PORT", 9090), debug=True)
+    app.run(host='0.0.0.0', port=os.environ.get("FLASK_SERVER_PORT", 9091), debug=True)

@@ -1,19 +1,19 @@
-
+from api.services.member import MemberService
 class MemberController:
     def __init__(self):
-        #self.memberService = MemberService()
+        self.memberService = MemberService()
         self.message = "Hi, I'm a Member Controller"
 
     def getAllMembers(self):
-        self.message = "All Members" # self.memberService.getAllMembers()
+        self.message = self.memberService.getAllMembers()
         return self.message
     
-    def getMemberById(self,memberId):
-        self.message = "Member Id" # self.memberService.getMemberById()
+    def getMemberById(self, memberId):
+        self.message = self.memberService.getMemberById(memberId)
         return self.message
     
-    def createMember(self,memberId):
-        self.message = "Creating Member" + memberId # self.memberService.createMember()
+    def createMember(self, member):
+        self.message = self.memberService.createMember(member)
         return self.message
     
     def updateMember(self, memberId):

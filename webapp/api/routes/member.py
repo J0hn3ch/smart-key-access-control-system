@@ -1,13 +1,15 @@
 from http import HTTPStatus
-from flask import Blueprint, render_template, abort
+from flask import Blueprint, render_template, abort, request, make_response
 from flasgger import swag_from
-from api.controller.member import MemberController
+from api.controllers.member import MemberController
 from api.schemas.member import MemberSchema
+
+import os
 
 member_api = Blueprint('member_api', __name__)
 
 # GET - Retrieve members
-@member_api.route('/member')
+@member_api.route('/member', methods=['GET','POST'])
 @swag_from({
     'responses': {
         HTTPStatus.OK.value: {
@@ -16,14 +18,25 @@ member_api = Blueprint('member_api', __name__)
         }
     }
 })
-def hello_member():
+def manage_member():
     """
     1 liner about the route
     A more detailed description of the endpoint
     --------
     """
-    result = MemberModel()
-    return MemberSchema().dump(result), 200
+
+    memberController = MemberController()
+    student_id = request.args.get('student_id')
+    if student_id is not None:
+        member = memberController.getMemberById(student_id)
+        return render_template('member.html', member_name=member.name)
+    else:
+        memberController.getAllMembers()
+        response = MemberSchema().dump(memberController), 200
+        return response
+    #template = os.getcwd() + "/templates" + "/member.html"
+    
+    
 
 # POST - Creating new member
 @member_api.route('/member', methods=['POST'])
@@ -41,9 +54,25 @@ def create_member():
     A more detailed description of the endpoint
     --------
     """
-    member = MemberModel()
+    member = MemberController()
     member.createMember('Melo')
-    return MemberSchema().dump(member), 200
+    error = None
+    if request.method == 'POST':
+        if valid_login(request.form['username'],
+                       request.form['password']):
+            return log_the_user_in(request.form['username'])
+        else:
+            error = 'Invalid username/password'
+        try:
+            searchword = request.args.get('key', '')
+        except KeyError:
+            tb = sys.exception().__traceback__
+            raise OtherException(...).with_traceback(tb)
+        resp = make_response("Record not found", 400)
+        resp.headers['X-Something'] = 'A value'
+    return render_template('login.html', error=error)
+
+    #return MemberSchema().dump(member), 200
 
 # UPDATE - Creating new member
 @member_api.route('/member', methods=['UPDATE'])
