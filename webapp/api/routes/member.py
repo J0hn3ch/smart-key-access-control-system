@@ -30,7 +30,7 @@ def manage_member():
     student_id = request.args.get('student_id')
     if student_id is not None:
         member = memberController.getMemberById(student_id)
-        if isinstance(member, Member):
+        if hasattr(member, 'name'):
             return render_template('member.html', member_name=member.name, member_role=member.role)
         else:
             return render_template('member.html')

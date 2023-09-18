@@ -82,7 +82,7 @@ class MemberModel:
         self.message = self.db.get('members')
         return self.message
     
-    def getMemberById(self,memberId):
+    def getMemberById(self, memberId):
         members = self.db.get('members')
         for member in members:
             if memberId == member['student_id']:
