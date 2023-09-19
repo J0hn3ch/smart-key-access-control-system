@@ -29,15 +29,14 @@ def manage_member():
     memberController = MemberController()
     student_id = request.args.get('student_id')
     if student_id is not None:
-        member = memberController.getMemberById(student_id)
-        if hasattr(member, 'name'):
-            return render_template('member.html', member_name=member.name, member_role=member.role)
-        else:
-            return render_template('member.html')
+        members = [ memberController.getMemberById(student_id) ]
+        if len(members) > 0:
+            return render_template('member.html', members=members)
     else:
-        memberController.getAllMembers()
-        response = MemberSchema().dump(memberController), 200
-        return response
+        members = memberController.getAllMembers()
+        return render_template('member.html', members=members)
+        #response = MemberSchema().dump(memberController), 200
+        #return response
     
     #template = os.getcwd() + "/templates" + "/member.html"
     

@@ -1,20 +1,36 @@
-<!doctype html>
-<title>UniVersoMe Member</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<div class="card">
-
-  {% if member_name %}
-  <h1>{{ member_name }}</h1>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <title>UniVersoMe Member</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  {% if members is defined and members|length > 0 %}
+  <ul id="navigation">
+    {% for member in members %}
+        <li>
+          <div class="card">
+          {% if member.name %}
+          <h1>{{ member.name }}</h1>
+          {% else %}
+          <h1>Member not found</h1>
+          {% endif %}
+          {% if member.role %}
+          <h2>{{ member.role }}</h2>
+          {% else %}
+          <h2>Member role not found</h2>
+          {% endif %}
+          <p>Access allowed</p>
+          <a href="{{ member.student_id }}">{{ member.student_id }}</a>
+          </div>
+        </li>
+    {% endfor %}
+    </ul>
   {% else %}
-  <h1>Member not found</h1>
+  <div class="card">
+    <h1>Member not found</h1>
+    <h2>Member role not found</h2>
+  </div>
   {% endif %}
-
-  {% if member_role %}
-  <h2>{{ member_role }}</h2>
-  {% else %}
-  <h1>Member role not found</h1>
-  {% endif %}
-
-  <p>Access allowed</p>
-</div>
-
+</body>
+</html>

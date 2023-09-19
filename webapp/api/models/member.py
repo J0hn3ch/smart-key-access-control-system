@@ -79,8 +79,11 @@ class MemberModel:
             self.db = json.load(json_file)
 
     def getAllMembers(self):
-        self.message = self.db.get('members')
-        return self.message
+        members = self.db.get('members')
+        member_list = list()
+        for member in members:
+            member_list.append(member)
+        return member_list
     
     def getMemberById(self, memberId):
         members = self.db.get('members')
