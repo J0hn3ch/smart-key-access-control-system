@@ -2,8 +2,6 @@ import json
 import os
 from collections import namedtuple
 
-
-
 class Member():
     def __init__(self, input):
         self.__dict__.update(input)
@@ -91,6 +89,7 @@ class MemberModel:
             if memberId == member['student_id']:
                 member_found = json.loads(json.dumps(member), object_hook=create_member)
                 self.message = member_found
+                break
             else:
                 self.message = None
         return self.message
