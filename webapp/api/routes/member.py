@@ -3,7 +3,6 @@ from flask import Blueprint, render_template, abort, request, make_response
 from flasgger import swag_from
 from api.controllers.member import MemberController
 from api.schemas.member import MemberSchema
-from api.models.member import Member
 
 import os
 
@@ -30,17 +29,16 @@ def manage_member():
     student_id = request.args.get('student_id')
     if student_id is not None:
         members = [ memberController.getMemberById(student_id) ]
-        if len(members) > 0:
-            return render_template('member.html', members=members)
+        if members[0] is None:
+            members.pop() # remove element None
+        print(members)
     else:
         members = memberController.getAllMembers()
+    
+    if len(members) > 0:
         return render_template('member.html', members=members)
-        #response = MemberSchema().dump(memberController), 200
-        #return response
-    
-    #template = os.getcwd() + "/templates" + "/member.html"
-    
-    
+    else:
+        return render_template('member.html')     
 
 # POST - Creating new member
 @member_api.route('/member', methods=['POST'])

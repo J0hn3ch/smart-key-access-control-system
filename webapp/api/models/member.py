@@ -91,6 +91,8 @@ class MemberModel:
             if memberId == member['student_id']:
                 member_found = json.loads(json.dumps(member), object_hook=create_member)
                 self.message = member_found
+            else:
+                self.message = None
         return self.message
     
     def createMember(self, member):
