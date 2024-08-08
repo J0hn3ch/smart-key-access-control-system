@@ -1,7 +1,7 @@
 Smart Key Access Control System
 ===============================
 
-Using RFID Cards to open a doorME
+Using RFID Cards to open a door
 -------------------------------
 
 # 1. Introduction
