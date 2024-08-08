@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+      <title></title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <header>
+            <div class="site-header__wrapper">
+                <h1>Editorial Office</h1>
+                <h2>UniVersoMe</h2>
+                <nav>
+                    <ul>
+                        <li><a href="/member">Member</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <h1>Home Page</h1>
+            <!-- Member Response -->
+            {% if member %}
+            <section>
+                <div class="member-card">
+                    {% if member.name %}
+                    <h1>{{ member.name }}</h1>
+                    {% else %}
+                    <h1>Member not found</h1>
+                    {% endif %}
+                    
+                    {% if member.role %}
+                    <h2>{{ member.role }}</h2>
+                    {% else %}
+                    <h2>Member role not found</h2>
+                    {% endif %}
+                    
+                    <p>Access allowed</p>
+                    <a href="{{ member.student_id }}">{{ member.student_id }}</a>
+                  </div>
+            </section>
+            {% endif %}
+
+            <!-- GET Request -->
+            {% if form %}
+            <section>
+                <form action="/post-test" method="post">
+                    <input type="text" name="card-uid" placeholder="Card UID (es. AA-BB-CC-11-22)">
+                    <input type="submit" value="Submit">
+                </form> 
+            </section>
+            {% endif %}
+        </main>
+        <footer>
+            <div class="site-footer_wrapper">
+                <p>Testata multiforme degli studenti UniMe</p>
+            </div>
+        </footer>
+    </body>
+</html>
