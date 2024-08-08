@@ -1,4 +1,4 @@
-Smart Key Access Control System SCU
+Smart Key Access Control System
 ===============================
 
 Using RFID Cards to open a door
@@ -22,6 +22,8 @@ In questo progetto vogliamo creare delle API REST per creare, leggere, aggiornar
 ## 3.1 Design
 1. Modello client/server: [Sistema client/server](https://it.wikipedia.org/wiki/Sistema_client/server)
 2. Architettura three-tier: [Architettura three-tier](https://www.ibm.com/it-it/topics/three-tier-architecture)
+3. Python Virtual Environment: [Python Virtual Environment](https://flask.palletsprojects.com/en/2.3.x/installation/#virtual-environments)
+4. Python Virtual Environment in Docker: [Python Venv in Docker](https://stackoverflow.com/questions/48561981/activate-python-virtualenv-in-dockerfile)
 
 ## 3.2 Development
 1. Docker Compose sample project: [Nginx/Flask/Mongo](https://github.com/docker/awesome-compose/tree/master/nginx-flask-mongo)
