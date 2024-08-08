@@ -1,4 +1,4 @@
-Smart Key Access Control System
+Smart Key Access Control System SCU
 ===============================
 
 Using RFID Cards to open a door
